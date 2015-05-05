@@ -1,0 +1,311 @@
+8_cms_create_backend_menu.phpdashboard:
+  name: dashboard
+  label: Dashboard
+  route: dashboard
+  class: fa fa-home
+  access: 2
+menu:
+  name: menu
+  label: Menu
+  route: menu-main
+  class: fa fa-bars
+  access: 4
+lista-menu:
+  name: lista-menu
+  label: Lista menu
+  route: menu
+  visible_in_primary: true
+  parent_id: 2
+edycja-menu:
+  name: edycja-menu
+  label: Edycja menu
+  route: menu/edit
+  visible_in_primary: false
+  parent_id: 2
+strony:
+  name: strony
+  label: Strony
+  route: page-main
+  class: fa fa-file-text-o
+  access: 2
+nowa-strona:
+  name: nowa-strona
+  label: Dodaj nową
+  route: page/create
+  visible_in_primary: true
+  parent_id: 5
+lista-stron:
+  name: lista-stron
+  label: Lista stron
+  route: page
+  visible_in_primary: true
+  parent_id: 5
+edycja-stron:
+  name: edycja-stron
+  label: Edycja strony
+  route: page/edit
+  visible_in_primary: false
+  parent_id: 5
+usuwanie-stron:
+  name: usuwanie-stron
+  label: Usuwanie strony
+  route: page/delete
+  visible_in_primary: false
+  parent_id: 5
+wpisy:
+  name: wpisy
+  label: Wpisy
+  route: post-main
+  class: fa fa-quote-right
+  access: 2
+lista-newsow:
+  name: lista-newsow
+  label: Lista newsów
+  route: post
+  visible_in_primary: true
+  parent_id: 10
+  params: "'category' => 'news'"
+tworzenie-newsa:
+  name: tworzenie-newsa
+  label: Tworzenie newsa
+  route: post/create
+  visible_in_primary: false
+  parent_id: 10
+  params: "'category' => 'news'"
+edycja-newsa:
+  name: edycja-newsa
+  label: Edycja newsa
+  route: post/edit
+  visible_in_primary: false
+  parent_id: 10
+  params: "'category' => 'news'"
+podglad-newsa:
+  name: podglad-newsa
+  label: Podgląd newsa
+  route: post/preview
+  visible_in_primary: false
+  parent_id: 10
+  params: "'category' => 'news'"
+lista-refeerncji:
+  name: lista-referencji
+  label: Lista referencji
+  route: post
+  visible_in_primary: true
+  parent_id: 10
+  params: "'category' => 'testimonials'"
+tworzenie-refeerncji:
+  name: tworzenie-refeerncji
+  label: Tworzenie referencji
+  route: post/create
+  visible_in_primary: false
+  parent_id: 10
+  params: "'category' => 'testimonials'"
+edycja-refeerncji:
+  name: edycja-refeerncji
+  label: Edycja referencji
+  route: post/edit
+  visible_in_primary: false
+  parent_id: 10
+  params: "'category' => 'testimonials'"
+podglad-refeerncji:
+  name: podglad-refeerncji
+  label: Podgląd referencji
+  route: post/preview
+  visible_in_primary: false
+  parent_id: 10
+  params: "'category' => 'testimonials'"
+slider:
+  name: slider
+  label: Slider
+  route: slider-main
+  class: fa fa-picture-o
+  access: 2
+tworzenie-slidera:
+  name: tworzenie-slidera
+  label: Tworzenie slidera
+  route: slider/create
+  visible_in_primary: true
+  parent_id: 19
+lista-slidera:
+  name: lista-slidera
+  label: Lista sliderów
+  route: slider
+  visible_in_primary: true
+  parent_id: 19
+edycja-slidera:
+  name: edycja-slidera
+  label: Edycja slidera
+  route: slider/edit
+  visible_in_primary: false
+  parent_id: 19
+usuwanie-slidera:
+  name: usuwanie-slidera
+  label: Usuwanie slidera
+  route: slider/delete
+  visible_in_primary: false
+  parent_id: 19
+lista-elementow:
+  name: lista-elementow
+  label: Lista elementów
+  route: slider/items
+  visible_in_primary: false
+  parent_id: 19
+nowy-element:
+  name: nowy-element
+  label: Tworzenie nowego elementu
+  route: slider/items/create
+  visible_in_primary: false
+  parent_id: 19
+edycja-elementu:
+  name: edycja-elementu
+  label: Edycja elemtu
+  route: slider/items/edit
+  visible_in_primary: false
+  parent_id: 19
+uzytkownicy:
+  name: uzytkownicy
+  label: Użytkownicy
+  route: users-main
+  class: fa fa-users
+  access: 4
+tworzenie-uzytkownika:
+  name: tworzenie-uzytkownika
+  label: Dodaj nowy
+  route: users/create
+  visible_in_primary: true
+  parent_id: 27
+lista-uzytkownikow:
+  name: lista-uzytkownikow
+  label: Lista użytkowników
+  route: users
+  visible_in_primary: true
+  parent_id: 27
+edycja-uzytkownikow:
+  name: edycja-uzytkownikow
+  label: Edycja użytkowników
+  route: users/edit
+  visible_in_primary: false
+  parent_id: 27
+podglad-uzytkownikwa:
+  name: podglad-uzytkownikowa
+  label: Podgląd użytkownika
+  route: users/preview
+  visible_in_primary: false
+  parent_id: 27
+usuwanie-uzytkownikowa:
+  name: usuwanie-uzytkownikowa
+  label: Usuwanie użytkownika
+  route: users/delete
+  visible_in_primary: false
+  parent_id: 27
+zmiana-hasla:
+  name: zmiana-hasla
+  label: Zmiana hasła
+  route: users/change-password
+  visible_in_primary: false
+  parent_id: 27
+newsletter:
+  name: newsletter
+  label: Newsletter
+  route: newsletter-main
+  class: fa fa-envelope-o
+  access: 4
+tworzenie-wiadomosci:
+  name: tworzenie-wiadomosci
+  label: Tworzenie wiadomości
+  route: newsletter/create
+  visible_in_primary: false
+  parent_id: 34
+edycja-wiadomosci:
+  name: edycja-wiadomosci
+  label: Edycja wiadomości
+  route: newsletter/edit
+  visible_in_primary: false
+  parent_id: 34
+podglad-wiadomosci:
+  name: podglad-wiadomosci
+  label: Podgląd wiadomości
+  route: newsletter/preview
+  visible_in_primary: false
+  parent_id: 34
+subskrybenci:
+  name: subskrybenci
+  label: Subskrybenci
+  route: newsletter/subscriber-list
+  visible_in_primary: true
+  parent_id: 34
+tworzenie-subskrybenta:
+  name: tworzenie-subskrybenta
+  label: Tworzenie subskrybenta
+  route: newsletter/subscriber-list/create
+  visible_in_primary: false
+  parent_id: 34
+edycja-subskrybenta:
+  name: edycja-subskrybenta
+  label: Edycja subskrybenta
+  route: newsletter/subscriber-list/edit
+  visible_in_primary: false
+  parent_id: 34
+podglad-subskrybenta:
+  name: podglad-subskrybenta
+  label: Podgląd subskrybenta
+  route: newsletter/subscriber-list/preview
+  visible_in_primary: false
+  parent_id: 34
+grupy-subskrybentow:
+  name: grupy-subskrybentow
+  label: Grupy subskrybentów
+  route: newsletter/subscriber-group
+  visible_in_primary: true
+  parent_id: 34
+tworzenie-grupy:
+  name: tworzenie-grupy
+  label: Tworzenie grupy
+  route: newsletter/subscriber-group/create
+  visible_in_primary: false
+  parent_id: 34
+edycja-grupy:
+  name: edycja-grupy
+  label: Edycja grupy
+  route: newsletter/subscriber-group/edit
+  visible_in_primary: false
+  parent_id: 34
+podglad-grupy:
+  name: podglad-grupy
+  label: Podgląd grupy
+  route: newsletter/subscriber-group/preview
+  visible_in_primary: false
+  parent_id: 34
+ustawienia:
+  name: ustawienia
+  label: Ustawienia
+  route: newsletter/settings
+  visible_in_primary: true
+  parent_id: 34
+slowniki:
+  name: slowniki
+  label: Słowniki
+  route: dictionary-main
+  class: fa fa-book
+  access: 2
+testowa-lista:
+  name: testowa-lista
+  label: Testowa lista
+  route: dictionary
+  visible_in_primary: true
+  parent_id: 47
+  params: "'category' => 'position'"
+testowe-tworzenie:
+  name: testowe-tworzenie
+  label: Testowe tworzenie
+  route: dictionary/create
+  visible_in_primary: false
+  parent_id: 47
+  params: "'category' => 'position'"
+testowa-edycja:
+  name: testowe-tworzenie
+  label: Testowe tworzenie
+  route: dictionary/edit
+  visible_in_primary: false
+  parent_id: 47
+  params: "'category' => 'position'"
