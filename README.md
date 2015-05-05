@@ -1,0 +1,2 @@
+# koscian
+dna - kościan
