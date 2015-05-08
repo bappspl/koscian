@@ -44,4 +44,17 @@ return array(
             ),
         ),
     ),
+    'oneNews' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/strona/aktualnosci/:slug',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'oneNews',
+            ),
+            'constraints' => array(
+                'slug' => '[a-zA-Z0-9_-]+'
+            ),
+        ),
+    ),
 );
