@@ -86,34 +86,34 @@ podglad-newsa:
   visible_in_primary: false
   parent_id: 10
   params: "'category' => 'news'"
-lista-refeerncji:
-  name: lista-referencji
-  label: Lista referencji
+lista-wydarzen:
+  name: lista-wydarzen
+  label: Lista wydarzeń
   route: post
   visible_in_primary: true
   parent_id: 10
-  params: "'category' => 'testimonials'"
-tworzenie-refeerncji:
-  name: tworzenie-refeerncji
-  label: Tworzenie referencji
+  params: "'category' => 'events'"
+tworzenie-wydarzenia:
+  name: tworzenie-wydarzenia
+  label: Tworzenie wydarzenia
   route: post/create
   visible_in_primary: false
   parent_id: 10
-  params: "'category' => 'testimonials'"
-edycja-refeerncji:
-  name: edycja-refeerncji
-  label: Edycja referencji
+  params: "'category' => 'events'"
+edycja-wydarzenia:
+  name: edycja-wydarzenia
+  label: Edycja wydarzenia
   route: post/edit
   visible_in_primary: false
   parent_id: 10
-  params: "'category' => 'testimonials'"
-podglad-refeerncji:
-  name: podglad-refeerncji
-  label: Podgląd referencji
+  params: "'category' => 'events'"
+podglad-wydarzenia:
+  name: podglad-wydarzenia
+  label: Podgląd wydarzenia
   route: post/preview
   visible_in_primary: false
   parent_id: 10
-  params: "'category' => 'testimonials'"
+  params: "'category' => 'events'"
 slider:
   name: slider
   label: Slider
