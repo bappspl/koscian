@@ -11,7 +11,7 @@ class CmsCreateFile extends AbstractMigration
             ->addColumn('entity_id', 'integer')
             ->addColumn('entity_type', 'string')
             ->addColumn('filename', 'text')
-            ->addColumn('mime_type', 'stringFile')
+            ->addColumn('mime_type', 'string')
             ->save();
     }
 

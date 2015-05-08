@@ -309,3 +309,21 @@ testowa-edycja:
   visible_in_primary: false
   parent_id: 47
   params: "'category' => 'position'"
+galeria:
+  name: galeria
+  label: Galeria
+  route: gallery-main
+  class: fa fa-file-image-o
+  access: 2
+galeria-lista:
+  name: galeria-lista
+  label: Lista galerii
+  route: gallery
+  visible_in_primary: true
+  parent_id: 51
+galeria-tworzenie:
+  name: galeria-tworzenie
+  label: Tworzenie galerii
+  route: gallery/create
+  visible_in_primary: false
+  parent_id: 51

@@ -17,3 +17,43 @@ Stack trace:
 #14 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(327): Zend\Mvc\Application->completeRequest(Object(Zend\Mvc\MvcEvent))
 #15 I:\htdocs\koscian\public\index.php(17): Zend\Mvc\Application->run()
 #16 {main}
+2015-05-05T22:06:44+02:00 CRIT (2): exception 'Zend\Mvc\Router\Exception\RuntimeException' with message 'Route with name "list" not found' in I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Router\Http\TreeRouteStack.php:317
+Stack trace:
+#0 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Router\Http\Part.php(210): Zend\Mvc\Router\Http\TreeRouteStack->assemble(Array, Array)
+#1 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Router\Http\TreeRouteStack.php(351): Zend\Mvc\Router\Http\Part->assemble(Array, Array)
+#2 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Navigation\Page\Mvc.php(260): Zend\Mvc\Router\Http\TreeRouteStack->assemble(Array, Array)
+#3 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Dashboard\view\partial\dashboard-sidebar-nav.phtml(71): Zend\Navigation\Page\Mvc->getHref()
+#4 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Renderer\PhpRenderer.php(506): include('I:\\htdocs\\kosci...')
+#5 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Helper\Partial.php(61): Zend\View\Renderer\PhpRenderer->render('partial/sidebar...', Array)
+#6 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Helper\Navigation\Menu.php(433): Zend\View\Helper\Partial->__invoke('partial/sidebar...', Array)
+#7 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Helper\Navigation\Menu.php(107): Zend\View\Helper\Navigation\Menu->renderPartial(NULL, 'partial/sidebar...')
+#8 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Dashboard\view\layout\dashboard.phtml(47): Zend\View\Helper\Navigation\Menu->render()
+#9 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Renderer\PhpRenderer.php(506): include('I:\\htdocs\\kosci...')
+#10 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\View.php(205): Zend\View\Renderer\PhpRenderer->render(Object(Zend\View\Model\ViewModel))
+#11 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\View\Http\DefaultRenderingStrategy.php(103): Zend\View\View->render(Object(Zend\View\Model\ViewModel))
+#12 [internal function]: Zend\Mvc\View\Http\DefaultRenderingStrategy->render(Object(Zend\Mvc\MvcEvent))
+#13 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('render', Object(Zend\Mvc\MvcEvent), Array)
+#15 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(352): Zend\EventManager\EventManager->trigger('render', Object(Zend\Mvc\MvcEvent))
+#16 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(327): Zend\Mvc\Application->completeRequest(Object(Zend\Mvc\MvcEvent))
+#17 I:\htdocs\koscian\public\index.php(17): Zend\Mvc\Application->run()
+#18 {main}
+2015-05-05T22:07:51+02:00 CRIT (2): exception 'Zend\Mvc\Router\Exception\RuntimeException' with message 'Route with name "file" not found' in I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Router\Http\TreeRouteStack.php:317
+Stack trace:
+#0 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Helper\Url.php(100): Zend\Mvc\Router\Http\TreeRouteStack->assemble(Array, Array)
+#1 [internal function]: Zend\View\Helper\Url->__invoke('file/create')
+#2 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Renderer\PhpRenderer.php(399): call_user_func_array(Object(Zend\View\Helper\Url), Array)
+#3 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\File\view\cms-ir\gallery\list.phtml(16): Zend\View\Renderer\PhpRenderer->__call('url', Array)
+#4 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\File\view\cms-ir\gallery\list.phtml(16): Zend\View\Renderer\PhpRenderer->url('file/create')
+#5 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Renderer\PhpRenderer.php(506): include('I:\\htdocs\\kosci...')
+#6 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\View.php(205): Zend\View\Renderer\PhpRenderer->render(Object(Zend\View\Model\ViewModel))
+#7 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\View.php(233): Zend\View\View->render(Object(Zend\View\Model\ViewModel))
+#8 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\View.php(198): Zend\View\View->renderChildren(Object(Zend\View\Model\ViewModel))
+#9 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\View\Http\DefaultRenderingStrategy.php(103): Zend\View\View->render(Object(Zend\View\Model\ViewModel))
+#10 [internal function]: Zend\Mvc\View\Http\DefaultRenderingStrategy->render(Object(Zend\Mvc\MvcEvent))
+#11 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('render', Object(Zend\Mvc\MvcEvent), Array)
+#13 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(352): Zend\EventManager\EventManager->trigger('render', Object(Zend\Mvc\MvcEvent))
+#14 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(327): Zend\Mvc\Application->completeRequest(Object(Zend\Mvc\MvcEvent))
+#15 I:\htdocs\koscian\public\index.php(17): Zend\Mvc\Application->run()
+#16 {main}
