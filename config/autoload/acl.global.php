@@ -47,6 +47,9 @@ return array(
                 'CmsIr\File\Controller\Gallery' => array(
                     'all'	=> 'superadmin',
                 ),
+                'CmsIr\Banner\Controller\Banner' => array(
+                    'all'	=> 'superadmin',
+                ),
             )
         )
     )

@@ -327,3 +327,33 @@ galeria-tworzenie:
   route: gallery/create
   visible_in_primary: false
   parent_id: 51
+galeria-edycja:
+  name: galeria-edycja
+  label: Edycja galerii
+  route: gallery/edit
+  visible_in_primary: false
+  parent_id: 51
+banner:
+  name: banner
+  label: Baner
+  route: banner-main
+  class: fa fa-file-image-o
+  access: 2
+banner-lista:
+  name: banner-lista
+  label: Lista banerów
+  route: banner
+  visible_in_primary: true
+  parent_id: 55
+banner-tworzenie:
+  name: banner-tworzenia
+  label: Tworzenie banera
+  route: banner/create
+  visible_in_primary: false
+  parent_id: 55
+banner-edycja:
+  name: banner-edycja
+  label: Edycja banera
+  route: banner/edit
+  visible_in_primary: false
+  parent_id: 55
