@@ -1,25 +1,62 @@
-<div class="text-center">
-    <h1>BŁĄD</h1>
-    <h3>Dziekujemy za znalezienie błędu. Już pracujemy nad naprawą.</h3>
-</div>
-<div class="login-wrapper" style="margin-top: 0">
-    <h1 class="error-number"><i class="fa fa-meh-o icon-xl icon-square"></i></h1>
-    <p class="text-center"><strong><a href="#" onclick="referrerAnchor()" style="color: rgb(101, 109, 120);">Wróć do poprzedniej strony</a></strong></p>
-</div>
+<h1><?php echo $this->translate('An error occurred') ?></h1>
+<h2><?php echo $this->message ?></h2>
 
+<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
 
-<?php $this->headScript()->captureStart(); ?>
+<?php if(isset($this->exception) && $this->exception instanceof Exception): ?>
+<hr/>
+<h2><?php echo $this->translate('Additional information') ?>:</h2>
+<h3><?php echo get_class($this->exception); ?></h3>
+<dl>
+    <dt><?php echo $this->translate('File') ?>:</dt>
+    <dd>
+        <pre class="prettyprint linenums"><?php echo $this->exception->getFile() ?>:<?php echo $this->exception->getLine() ?></pre>
+    </dd>
+    <dt><?php echo $this->translate('Message') ?>:</dt>
+    <dd>
+        <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getMessage()) ?></pre>
+    </dd>
+    <dt><?php echo $this->translate('Stack trace') ?>:</dt>
+    <dd>
+        <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getTraceAsString()) ?></pre>
+    </dd>
+</dl>
+<?php
+    $e = $this->exception->getPrevious();
+    if ($e) :
+?>
+<hr/>
+<h2><?php echo $this->translate('Previous exceptions') ?>:</h2>
+<ul class="unstyled">
+    <?php while($e) : ?>
+    <li>
+        <h3><?php echo get_class($e); ?></h3>
+        <dl>
+            <dt><?php echo $this->translate('File') ?>:</dt>
+            <dd>
+                <pre class="prettyprint linenums"><?php echo $e->getFile() ?>:<?php echo $e->getLine() ?></pre>
+            </dd>
+            <dt><?php echo $this->translate('Message') ?>:</dt>
+            <dd>
+                <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getMessage()) ?></pre>
+            </dd>
+            <dt><?php echo $this->translate('Stack trace') ?>:</dt>
+            <dd>
+                <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getTraceAsString()) ?></pre>
+            </dd>
+        </dl>
+    </li>
+    <?php
+        $e = $e->getPrevious();
+        endwhile;
+    ?>
+</ul>
+<?php endif; ?>
 
-    function referrerAnchor()
-    {
-        var oldUrl = document.referrer;
-        if(oldUrl.length > 0)
-        {
-            window.location.href = oldUrl;
-        } else
-        {
-            window.location.href = '/cms-ir/dashboard';
-        }
-    }
+<?php else: ?>
 
-<?php $this->headScript()->captureEnd(); ?>
+<h3><?php echo $this->translate('No Exception available') ?></h3>
+
+<?php endif ?>
+
+<?php endif ?>

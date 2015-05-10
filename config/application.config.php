@@ -18,6 +18,7 @@ return array(
         'CmsIr\Post',
         'CmsIr\Dictionary',
         'CmsIr\File',
+        'CmsIr\Banner',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

@@ -48,6 +48,12 @@ return array(
                     'createThumb'	=> 'guest',
                     'saveEditorImages'	=> 'guest',
                 ),
+                'CmsIr\File\Controller\Gallery' => array(
+                    'all'	=> 'superadmin',
+                ),
+                'CmsIr\Banner\Controller\Banner' => array(
+                    'all'	=> 'superadmin',
+                ),
             )
         )
     )
