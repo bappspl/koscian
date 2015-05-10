@@ -12,14 +12,17 @@
 
                         <li class="widget-container widget_nav_menu"><!-- widgets list -->
 
-                            <h1 class="title-widget">Useful links</h1>
+                            <h1 class="title-widget">Przydatne linki</h1>
 
                             <ul>
-                                <li><a href="#" title="menu item">Placement Exam Schedule</a></li>
-                                <li><a href="#" title="menu item">Superintendent's Hearing Audio</a></li>
-                                <li><a href="#" title="menu item">Budget Central</a></li>
-                                <li><a href="#" title="menu item">Job Opportunities - Application</a></li>
-                                <li><a href="#" title="menu item">College Acceptances as of May 12</a></li>
+                                <?php foreach($this->layout()->usefullLinks as $usefullLink): ?>
+                                    <?php
+                                        $item = $usefullLink->getItems();
+                                        $label = $item->getLabel();
+                                        $url = $item->getUrl();
+                                    ?>
+                                    <li><a href="<?php echo $url; ?>" title="menu item"><?php echo $label; ?></a></li>
+                                <?php endforeach; ?>
                             </ul>
 
                         </li>
@@ -38,21 +41,21 @@
 
                         <li class="widget-container widget_recent_news"><!-- widgets list -->
 
-                            <h1 class="title-widget">School Contact</h1>
+                            <h1 class="title-widget">Kontakt z nami</h1>
 
-                            <div itemscope itemtype="http://data-vocabulary.org/Organization">
+                            <div itemscope>
 
-                                <h2 class="title-median m-contact-subject" itemprop="name">Buntington Public Schools</h2>
+                                <h2 class="title-median m-contact-subject" itemprop="name">Stowrzyszenie <br>Centrum Rozwoju Gminy Kościan</h2>
 
-                                <div class="m-contact-address" itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-                                    <span class="m-contact-street" itemprop="street-address">19 Tower Avenue, Buntington Station</span>
-                                    <span class="m-contact-city-region"><span class="m-contact-city" itemprop="locality">New York</span>, <span class="m-contact-region" itemprop="region">NY</span></span>
-                                    <span class="m-contact-zip-country"><span class="m-contact-zip" itemprop="postal-code">11506</span> <span class="m-contact-country" itemprop="country-name">USA</span></span>
+                                <div class="m-contact-address" itemprop="address" itemscope>
+                                    <span class="m-contact-street" itemprop="street-address">Stare Oborzyska</span>
+                                    <span class="m-contact-city-region"><span class="m-contact-city" itemprop="locality">ul. Szkolna 1</span></span>
+                                    <span class="m-contact-zip-country"><span class="m-contact-zip" itemprop="postal-code">64-000 Kościan</span></span>
                                 </div>
 
                                 <div class="m-contact-tel-fax">
-                                    <span class="m-contact-tel">Tel: <span itemprop="tel">631-551-3678</span></span>
-                                    <span class="m-contact-fax">Fax: <span itemprop="fax">631-551-3688</span></span>
+                                    <span class="m-contact-tel">Tel/fax: <span itemprop="tel">65 5119820</span></span>
+                                    <span class="m-contact-fax">Kom: <span itemprop="fax">503013259</span></span>
                                 </div>
 
                             </div>

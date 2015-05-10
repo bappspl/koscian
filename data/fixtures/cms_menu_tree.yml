@@ -2,3 +2,7 @@ menu:
   name: Menu główne
   machine_name: main-menu
   position: 1
+menu_2:
+  name: Przydatne linki
+  machine_name: usefull-links
+  position: 2

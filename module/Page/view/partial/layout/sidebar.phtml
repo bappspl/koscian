@@ -4,68 +4,160 @@
 
         <ul class="list-unstyled clear-margins"><!-- widgets -->
 
-            <li class="widget-container widget_course_search"><!-- widget -->
+            <?php if(isset($usefulLinks)) : ?>
+                <li class="widget-container widget_nav_menu"><!-- widget -->
 
-                <h1 class="title-titan">Course Finder</h1>
+                    <h1 class="title-widget">Przydatne linki</h1>
 
-                <form role="search" method="get" id="course-finder" action="#">
+                    <ul>
+                        <?php foreach($usefulLinks as $usefullLink): ?>
+                            <?php
+                            $item = $usefullLink->getItems();
+                            $label = $item->getLabel();
+                            $url = $item->getUrl();
+                            ?>
+                            <li><a href="<?php echo $url; ?>" title="menu item"><?php echo $label; ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+
+                </li>
+            <?php endif; ?>
+
+            <?php if(isset($recentNews)): ?>
+                <li class="widget-container widget_recent_news"><!-- widgets list -->
+
+                    <h1 class="title-widget">Aktualności</h1>
+
+                    <?php if(count($recentNews) > 0): ?>
+
+                        <ul class="list-unstyled">
+
+                            <?php foreach($recentNews as $oneNews): ?>
+                                <?php
+                                $dataFrom = $oneNews->getDateFrom();
+                                $dataTo = $oneNews->getDateTo();
+                                $text = strip_tags($oneNews->getText());
+
+                                if(strlen($text) > 107)
+                                {
+                                    $text = mb_substr($text, 0, 107, 'utf-8');
+                                }
+
+                                $filename = $oneNews->getFilenameMain();
+                                ?>
+                                <li class="recent-news-wrap news-no-summary">
+                                    <div class="recent-news-content clearfix">
+                                        <figure class="recent-news-thumb">
+                                            <a href="<?php echo $this->url('one-news', array('slug' => $oneNews->getUrl())); ?>">
+                                                <?php if($filename): ?>
+                                                    <img src="<?php echo $this->url('thumb', array('entity' => 'post', 'size' => '90x90', 'filename' => $filename)); ?>" class="attachment-thumbnail wp-post-image" />
+                                                <?php else: ?>
+                                                    <img src="/img/no-photo.jpg" class="attachment-thumbnail wp-post-image" />
+                                                <?php endif; ?>
+                                            </a>
+                                        </figure>
+                                        <div class="recent-news-text">
+                                            <div class="recent-news-meta">
+                                                <div class="recent-news-date"><?php echo date('M d, Y', strtotime($dataFrom)); ?></div>
+                                            </div>
+                                            <h1 class="title-median"><a href="<?php echo $this->url('one-news', array('slug' => $oneNews->getUrl())); ?>"><?php echo $oneNews->getName(); ?></a></h1>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+
+                        </ul>
+
+                    <?php else: ?>
+                        <h1 class="title-median">Brak aktualności.</h1>
+                    <?php endif; ?>
+                </li><!-- widgets list end -->
+            <?php endif; ?>
+
+            <?php if(isset($upcomingEvents)) : ?>
+                <li class="widget-container widget_up_events"><!-- widget -->
+
+                    <h1 class="title-widget">Nadchodzące wydarzenia</h1>
+                    <?php if(count($upcomingEvents) > 0): ?>
+                    <ul class="list-unstyled">
+                        <?php foreach($upcomingEvents as $event): ?>
+                            <?php
+                            $dataFrom = $event->getDateFrom();
+                            $dataTo = $event->getDateTo();
+                            $text = strip_tags($event->getText());
+
+                            if(strlen($text) > 107)
+                            {
+                                $text = mb_substr($text, 0, 107, 'utf-8');
+                            }
+
+                            ?>
+
+                            <li class="up-event-wrap">
+                                <h1 class="title-median"><a href="<?php echo $this->url('one-events', array('slug' => $event->getUrl())); ?>"><?php echo $event->getName(); ?></a></h1>
+                                <div class="up-event-meta clearfix">
+                                    <div class="up-event-date"><?php echo date('M d, Y', strtotime($dataFrom)); ?></div><div class="up-event-time"><?php echo date('H:i', strtotime($dataFrom)) . ' - ' .  date('H:i', strtotime($dataTo))?></div>
+                                </div>
+                                <p>
+                                    <?php echo $text; ?>
+                                    <a href="<?php echo $this->url('one-events', array('slug' => $event->getUrl())); ?>" class="moretag" title="read more">więcej</a>
+                                </p>
+                            </li>
+
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php else: ?>
+                        <h1 class="title-median">Brak wydarzeń.</h1>
+                    <?php endif; ?>
+                </li>
+            <?php endif; ?>
+
+            <li class="widget-container widget_newsletter"><!-- widget -->
+
+                <h1 class="title-titan">Subskrybcja Newslettera</h1>
+
+                <form role="search" class="newsletter-form">
                     <div class="input-group">
-                        <input type="text" placeholder="Find a course..." autocomplete="off" class="form-control" id="find-course" name="find-course" />
-                        <span class="input-group-btn"><button type="submit" class="btn btn-default">GO!</button></span>
+                        <input type="email" placeholder="wpisz swój adres email" autocomplete="off" class="form-control newsletter-form-input" name="email" />
+                        <span class="input-group-btn"><button type="submit" class="btn btn-default">Zapisz</button></span>
                     </div>
-                    <span class="help-block">* Enter course ID, title or the course instructor name</span>
+                    <span class="help-block">* Wyrażam zgodę na korzystanie z mojego adresu e-mail w celu wysłania newslettera</span>
                 </form>
 
-            </li><!-- widget end -->
+            </li>
 
-            <li class="widget-container widget_text"><!-- widget -->
+            <?php if(isset($banners)) : ?>
+                <li class="widget-container widget_text"><!-- widget -->
 
-                <a href="#" class="custom-button cb-green" title="How to apply?">
-                    <i class="custom-button-icon fa fa-check-square-o"></i>
-                                    <span class="custom-button-wrap">
-                                    	<span class="custom-button-title">How to apply?</span>
-                                        <span class="custom-button-tagline">Join us whenewer you feel it’s time!</span>
-                                    </span>
-                    <em></em>
-                </a>
+                    <a href="#" class="custom-button cb-green" title="How to apply?">
+                        <i class="custom-button-icon fa fa-check-square-o"></i>
+                                        <span class="custom-button-wrap">
+                                            <span class="custom-button-title">How to apply?</span>
+                                            <span class="custom-button-tagline">Join us whenewer you feel it’s time!</span>
+                                        </span>
+                        <em></em>
+                    </a>
 
-                <a href="#" class="custom-button cb-gray" title="Campus tour">
-                    <i class="custom-button-icon fa  fa-play-circle-o"></i>
-                                    <span class="custom-button-wrap">
-                                    	<span class="custom-button-title">Campus tour</span>
-                                        <span class="custom-button-tagline">Student's life at the glance. Take a tour...</span>
-                                    </span>
-                    <em></em>
-                </a>
+                    <a href="#" class="custom-button cb-gray" title="Campus tour">
+                        <i class="custom-button-icon fa  fa-play-circle-o"></i>
+                                        <span class="custom-button-wrap">
+                                            <span class="custom-button-title">Campus tour</span>
+                                            <span class="custom-button-tagline">Student's life at the glance. Take a tour...</span>
+                                        </span>
+                        <em></em>
+                    </a>
 
-                <a href="#" class="custom-button cb-yellow" title="Prospectus">
-                    <i class="custom-button-icon fa  fa-leaf"></i>
-                                    <span class="custom-button-wrap">
-                                    	<span class="custom-button-title">Prospectus</span>
-                                        <span class="custom-button-tagline">Request a free School Prospectus!</span>
-                                    </span>
-                    <em></em>
-                </a>
+                    <a href="#" class="custom-button cb-yellow" title="Prospectus">
+                        <i class="custom-button-icon fa  fa-leaf"></i>
+                                        <span class="custom-button-wrap">
+                                            <span class="custom-button-title">Prospectus</span>
+                                            <span class="custom-button-tagline">Request a free School Prospectus!</span>
+                                        </span>
+                        <em></em>
+                    </a>
 
-            </li><!-- widget end -->
-
-            <li class="widget-container widget_sofa_twitter"><!-- widget -->
-
-                <ul class="k-twitter-twitts list-unstyled">
-
-                    <li class="twitter-twitt">
-                        <p>
-                            <a href="https://twitter.com/DanielleFilson">@MattDeamon</a> Why it always has to be so complicated? Try to get it via this link <a href="http://usap.co/potter">mama.co/hpot</a> Good luck mate!
-                        </p>
-                    </li>
-
-                </ul>
-
-                <div class="k-twitter-twitts-footer">
-                    <a href="#" class="k-twitter-twitts-follow" title="Follow!"><i class="fa fa-twitter"></i>&nbsp; Follow us!</a>
-                </div>
-
-            </li><!-- widget end -->
+                </li><!-- widget end -->
+            <?php endif; ?>
 
         </ul><!-- widgets end -->
 

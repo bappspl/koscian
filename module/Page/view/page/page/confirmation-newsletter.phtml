@@ -1,28 +1,22 @@
-<!-- BEGIN HAPPY CLIENT SECTION -->
-<div class="section bg-light">
-    <div class="container">
-        <div class="section-heading">
-            <div class="inner-border"></div>
-            <h3>Newsletter</h3>
-        </div><!-- /.section-heading -->
+<?php echo $this->partial('partial/layout/breadcrumb-search' , array('breadcrumps' => array('/' => 'Strona główna', 'Newsletter'))); ?>
+<div class="row no-gutter"><!-- row -->
+    <div class="col-lg-8 col-md-8"><!-- doc body wrapper -->
+        <div class="col-padded"><!-- inner custom column -->
+            <div class="row gutter"><!-- row -->
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="page-title">Newsletter</h1>
+                </div>
+            </div>
 
-        <div id="owl-testimonial" class="owl-carousel testimonial">
-            <div class="item">
-                <p class="text-testi">
+            <div class="row gutter"><!-- row -->
+                <div class="col-lg-12 col-md-12">
+                    <br/>
                     <?php echo $message; ?>
-                </p>
-            </div><!-- /.item -->
-        </div>
-    </div><!-- /.container -->
-</div><!-- /.section -->
-<!-- END HAPPY CLIENT SECTION -->
+                </div>
+            </div>
 
+        </div><!-- /.container -->
+    </div><!-- /.section -->
 
-
-<!-- BEGIN CLIENT LOGO SECTION -->
-<div class="section">
-    <div class="container">
-        <?php echo $this->partial('partial/page/banners'); ?>
-    </div><!-- /.container -->
-</div><!-- /.section -->
-<!-- END CLIENT LOGO SECTION -->
+    <?php echo $this->partial('partial/layout/sidebar'); ?>
+</div>

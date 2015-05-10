@@ -42,6 +42,7 @@
     <?php echo $this->partial('partial/newsletter-modal'); ?>
 
     <?php echo $this->inlineScript()
+                    ->prependFile($this->basePath() . '/js/scripts.js')
                     ->prependFile($this->basePath() . '/js/theme.js')
                     ->prependFile($this->basePath() . '/js/jquery.easy-pie-chart.js')
                     ->prependFile($this->basePath() . '/js/audioplayer.min.js')

@@ -1,12 +1,40 @@
 <?php /* @var $page \CmsIr\Page\Model\Page */?>
+<?php echo $this->partial('partial/layout/breadcrumb-search' , array('breadcrumps' => array('/' => 'Strona główna', $page->getName()))); ?>
 
-<!-- BEGIN FIRST SECTION -->
-<div class="section">
-    <div class="container">
-        <h3><?php echo $page->getName() ?></h3>
-        <h4 class="light-font line-height-28 margin-top-50">
-            <?php echo $page->getContent() ?>
-        </h4>
-    </div><!-- /.container -->
-</div><!-- /.section -->
-<!-- END FIRST SECTION -->
+<div class="row no-gutter fullwidth"><!-- row -->
+    <div class="col-lg-12 col-md-12"><!-- doc body wrapper -->
+        <div class="col-padded"><!-- inner custom column -->
+
+            <?php if($page->getFilenameMain()): ?>
+                <figure class="news-featured-image">
+                    <img src="<?php echo $this->url('thumb', array('entity' => 'page', 'size' => '1080x440', 'filename' => $page->getFilenameMain())); ?>" />
+                </figure>
+            <?php endif; ?>
+
+            <h1 class="page-title"><?php echo $page->getName() ?></h1>
+
+            <div class="news-body">
+                <?php echo $page->getContent() ?>
+            </div>
+
+            <?php if(count($pageFiles) > 0): ?>
+                <?php $fileGroup = array_chunk($pageFiles, 3); ?>
+
+                <?php foreach($fileGroup as $files): ?>
+
+                    <div class="row">
+
+                        <?php foreach($files as $file): ?>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <img src="<?php echo $this->url('thumb', array('entity' => 'page', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />
+                            </div>
+                        <?php endforeach; ?>
+
+                    </div>
+
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+        </div>
+    </div>
+</div>

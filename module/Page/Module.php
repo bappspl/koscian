@@ -15,9 +15,11 @@ class Module
 
         $sm = $e->getApplication()->getServiceManager();
         $menu = $this->getMenuService($sm)->getMenuByMachineName('main-menu');
+        $usefulLinks = $this->getMenuService($sm)->getMenuByMachineName('usefull-links');
 
         $viewModel = $e->getViewModel();
         $viewModel->menu = $menu;
+        $viewModel->usefullLinks = $usefulLinks;
 
     }
 

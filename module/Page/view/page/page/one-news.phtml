@@ -1,0 +1,66 @@
+<?php echo $this->partial('partial/layout/breadcrumb-search' , array('breadcrumps' => array('/' => 'Strona główna', '/aktualnosci' => 'Aktualności', $onePost->getName()))); ?>
+<div class="row no-gutter"><!-- row -->
+    <div class="col-lg-8 col-md-8"><!-- doc body wrapper -->
+        <div class="col-padded"><!-- inner custom column -->
+
+            <div class="row gutter"><!-- row -->
+                <div class="col-lg-12 col-md-12">
+                    <?php if(count($onePost) > 0): ?>
+                        <?php
+                            $dataFrom = $onePost->getDateFrom();
+                            $text = $onePost->getText();
+                            $filename = $onePost->getFilenameMain();
+                        ?>
+                        <figure class="news-featured-image">
+                            <?php if($filename): ?>
+                                <img src="<?php echo $this->url('thumb', array('entity' => 'post', 'size' => '700x292', 'filename' => $filename)); ?>" class="img-responsive" />
+                            <?php else: ?>
+                                <img src="/img/no-photo-big.jpg" class="img-responsive" />
+                            <?php endif; ?>
+                        </figure>
+
+                        <div class="news-title-meta">
+                            <h1 class="page-title"><?php echo $onePost->getName(); ?></h1>
+                            <div class="news-meta">
+                                <span class="news-meta-date"><?php echo date('M d, Y', strtotime($dataFrom)); ?></span>
+                                <span class="news-meta-category"><a href="<?php echo $this->url('news'); ?>" title="News">Aktualności</a></span>
+                            </div>
+                        </div>
+
+                        <div class="news-body">
+                            <?php echo $text; ?>
+                        </div>
+
+                        <?php if(count($postFiles) > 0): ?>
+                            <?php $fileGroup = array_chunk($postFiles, 3); ?>
+
+                            <?php foreach($fileGroup as $files): ?>
+
+                            <div class="row">
+
+                                <?php foreach($files as $file): ?>
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <img src="<?php echo $this->url('thumb', array('entity' => 'post', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />
+                                    </div>
+                                <?php endforeach; ?>
+
+                            </div>
+
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <div class="up-event-wrapper"><!-- event summary -->
+                            <h1 class="title-median">Brak wydarzenia.</h1>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+
+        </div><!-- inner custom column end -->
+
+    </div><!-- doc body wrapper end -->
+
+    <?php echo $this->partial('partial/layout/sidebar'); ?>
+
+</div><!-- row end -->

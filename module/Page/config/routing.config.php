@@ -34,7 +34,7 @@ return array(
     'newsletter-confirmation' => array(
         'type' => 'Segment',
         'options' => array(
-            'route'    => '/newsletter-confirmation/:code',
+            'route'    => '/potwierdzenie-subskrybcji/:code',
             'defaults' => array(
                 'controller' => 'Page\Controller\Page',
                 'action'     => 'confirmationNewsletter',
@@ -47,7 +47,7 @@ return array(
     'news' => array(
         'type' => 'Segment',
         'options' => array(
-            'route'    => '/aktualnosci',
+            'route'    => '/aktualnosci[/strona/:number]',
             'defaults' => array(
                 'controller' => 'Page\Controller\Page',
                 'action'     => 'news',
@@ -57,7 +57,7 @@ return array(
     'events' => array(
         'type' => 'Segment',
         'options' => array(
-            'route'    => '/wydarzenia',
+            'route'    => '/wydarzenia[/strona/:number]',
             'defaults' => array(
                 'controller' => 'Page\Controller\Page',
                 'action'     => 'events',
