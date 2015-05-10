@@ -3,26 +3,22 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle($this->translate('Sample web-ir website')) ?>
+        <?php echo $this->headTitle($this->translate('Stowarzyszenie Centrum Rozwoju Gminy Kościan')) ?>
 
         <?php echo $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
-
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,800" rel="stylesheet" type="text/css"><!-- Google web fonts -->
         <!-- Le styles -->
         <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
                         // MAIN CSS (REQUIRED ALL PAGE)
-                        ->prependStylesheet($this->basePath() . '/css/style-responsive-frontend.css')
-                        ->prependStylesheet($this->basePath() . '/css/style-frontend.css')
-                        ->prependStylesheet($this->basePath() . '/css/font-awesome.min.css')
-
-
-                        ->prependStylesheet($this->basePath() . '/css/owl.transitions.css')
-                        ->prependStylesheet($this->basePath() . '/css/owl.theme.css')
-                        ->prependStylesheet($this->basePath() . '/css/owl.carousel.css')
-                        ->prependStylesheet($this->basePath() . '/css/magnific-popup.css')
+                        ->prependStylesheet($this->basePath() . '/css/style_frontend.css')
+                        ->prependStylesheet($this->basePath() . '/css/audioplayer.css')
+                        ->prependStylesheet($this->basePath() . '/css/jquery.fancybox.css')
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/dropdown-menu.css')
+                        ->prependStylesheet($this->basePath() . '/css/font-awesome.min.css')
         ?>
         <!-- Scripts -->
         <?php echo $this->headScript()
@@ -30,31 +26,33 @@
             ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',));
         ?>
 
+
     </head>
     <body class="tooltips">
     <?php echo $this->partial('partial/layout/header'); ?>
-    <?php echo $content; ?>
-    <?php echo $this->partial('partial/layout/footer'); ?>
 
+    <div id="k-body"><!-- content wrapper -->
+        <div class="container"><!-- container -->
+            <?php echo $content; ?>
+
+        </div>
+    </div>
+
+    <?php echo $this->partial('partial/layout/footer'); ?>
     <?php echo $this->partial('partial/newsletter-modal'); ?>
 
-    <!-- BEGIN BACK TO TOP BUTTON -->
-    <div id="back-top">
-        <i class="fa fa-chevron-up"></i>
-    </div>
-    <!-- END BACK TO TOP -->
-
     <?php echo $this->inlineScript()
-                    ->prependFile($this->basePath() . '/js/apps-frontend.js')
-                    ->prependFile($this->basePath() . '/js/page.js')
-                    ->prependFile($this->basePath() . '/js/retina.min.js')
-                    ->prependFile($this->basePath() . '/js/jquery.backstretch.min.js')
-                    ->prependFile($this->basePath() . '/js/jquery.magnific-popup.min.js')
-                    ->prependFile($this->basePath() . '/js/owl.carousel.min.js')
-                    ->prependFile($this->basePath() . '/js/jquery.mixitup.js')
+                    ->prependFile($this->basePath() . '/js/theme.js')
+                    ->prependFile($this->basePath() . '/js/jquery.easy-pie-chart.js')
+                    ->prependFile($this->basePath() . '/js/audioplayer.min.js')
+                    ->prependFile($this->basePath() . '/js/jquery.fitvids.js')
+                    ->prependFile($this->basePath() . '/js/jquery.fancybox-media.js')
+                    ->prependFile($this->basePath() . '/js/jquery.fancybox.pack.js')
+                    ->prependFile($this->basePath() . '/js/dropdown-menu.js')
                     ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-                    ->prependFile($this->basePath() . '/js/jquery.min.js')
+                    ->prependFile($this->basePath() . '/js/jquery-migrate-1.2.1.min.js')
+                    ->prependFile($this->basePath() . '/js/jquery-2.1.1.min.js')
     ?>
-
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     </body>
 </html>

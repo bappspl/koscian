@@ -44,6 +44,10 @@ return array(
                 'CmsIr\Post\Controller\Post' => array(
                     'all'	=> 'superadmin',
                 ),
+                'CmsIr\System\Controller\System' => array(
+                    'createThumb'	=> 'guest',
+                    'saveEditorImages'	=> 'guest',
+                ),
             )
         )
     )

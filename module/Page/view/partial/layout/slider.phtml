@@ -1,0 +1,49 @@
+<div class="row no-gutter fullwidth"><!-- row -->
+
+    <div class="col-lg-12 clearfix"><!-- featured posts slider -->
+
+        <div id="carousel-featured" class="carousel slide" data-interval="4000" data-ride="carousel">
+            <?php  $countSlide = count($slider);  ?>
+            <ol class="carousel-indicators"><!-- Indicators -->
+                <?php for($i=0;$i<$countSlide;$i++): ?>
+                    <?php if($i == 0): ?>
+                        <li data-target="#carousel-featured" data-slide-to="0" class="active"></li>
+                    <?php else: ?>
+                        <li data-target="#carousel-featured" data-slide-to="<?php echo $i; ?>"></li>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            </ol>
+            <div class="carousel-inner"><!-- Wrapper for slides -->
+
+                <?php /* @var $item \CmsIr\Slider\Model\Slider */ $a=0;?>
+                <?php foreach($slider as $item): ?>
+                    <?php //$url = $item->getUrl(); ?>
+                    <div class="item <?php if($a == 0)  echo 'active'; else echo ''; ?>">
+                        <img src="<?php echo $this->url('thumb', array('entity' => 'slider', 'size' => '1140x400', 'filename' => $item->getFilename())); ?>" alt="Image slide 4" />
+                        <div class="k-carousel-caption pos-2-3-left scheme-light">
+                            <div class="caption-content">
+                                <h3 class="caption-title"><?php echo $item->getTitle(); ?></h3>
+                                <p>
+                                    <?php echo $item->getDescription(); ?>
+                                </p>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <?php $a++; ?>
+                <?php endforeach; ?>
+
+            </div><!-- Wrapper for slides end -->
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-featured" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+            <a class="right carousel-control" href="#carousel-featured" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+            <!-- Controls end -->
+
+        </div><!-- featured posts slider wrapper end -->
+
+    </div><!-- featured posts slider end -->
+
+</div><!-- row end -->

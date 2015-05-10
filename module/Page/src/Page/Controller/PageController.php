@@ -2,6 +2,7 @@
 
 namespace Page\Controller;
 
+use CmsIr\Post\Model\Post;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -16,16 +17,13 @@ class PageController extends AbstractActionController
 {
     public function homeAction()
     {
-//        $menu = $this->getMenuService()->getMenuByMachineName('main-menu');
-//        $this->layout()->menu = $menu;
-
         $slider = $this->getSliderService()->findOneBySlug('slider-glowny');
         $items = $slider->getItems();
 
         $this->layout('layout/home');
 
         $viewParams = array();
-        $viewParams['items'] = $items;
+        $viewParams['slider'] = $items;
         $viewModel = new ViewModel();
         $viewModel->setVariables($viewParams);
         return $viewModel;
@@ -55,8 +53,8 @@ class PageController extends AbstractActionController
     {
         $request = $this->getRequest();
 
-
-        if ($request->isPost()) {
+        if ($request->isPost())
+        {
             $uncofimerdStatus = $this->getStatusTable()->getOneBy(array('slug' => 'unconfirmed'));
             $uncofimerdStatusId = $uncofimerdStatus->getId();
 
@@ -139,6 +137,35 @@ class PageController extends AbstractActionController
         return $viewModel;
     }
 
+    public function searchAction()
+    {
+        $this->layout('layout/home');
+
+        $slug = $this->params('search');
+
+        $activeStatus = $this->getStatusTable()->getOneBy(array('slug' => 'active'));
+        $activeStatusId = $activeStatus->getId();
+        $allPost = $this->getPostTable()->getWithPaginationBy(new Post(), array('status_id' => $activeStatusId, 'slug' => $slug), 'date_from DESC');
+        $page = $this->params()->fromRoute('number') ? (int) $this->params()->fromRoute('number') : 1;
+        $allPost->setCurrentPageNumber($page);
+        $allPost->setItemCountPerPage(5);
+
+        $test = array();
+        foreach($allPost as $post)
+        {
+            $test[] = $post;
+        }
+
+        $viewParams = array();
+        $viewParams['paginator'] = $allPost;
+        $viewParams['posts'] = $test;
+        $viewParams['slug'] = $slug;
+        $viewModel = new ViewModel();
+        $viewModel->setVariables($viewParams);
+        return $viewModel;
+
+    }
+
     /**
      * @return \CmsIr\Menu\Service\MenuService
      */
@@ -161,6 +188,14 @@ class PageController extends AbstractActionController
     public function getPageService()
     {
         return $this->getServiceLocator()->get('CmsIr\Page\Service\PageService');
+    }
+
+    /**
+     * @return \CmsIr\Post\Model\PostTable
+     */
+    public function getPostTable()
+    {
+        return $this->getServiceLocator()->get('CmsIr\Post\Model\PostTable');
     }
 
     /**

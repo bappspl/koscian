@@ -11,7 +11,7 @@ return array(
             ),
         ),
     ),
-    'viewPage' => array(
+    'view-page' => array(
         'type' => 'Zend\Mvc\Router\Http\Segment',
         'options' => array(
             'route'    => '/strona/:slug',
@@ -44,16 +44,59 @@ return array(
             ),
         ),
     ),
-    'oneNews' => array(
+    'news' => array(
         'type' => 'Segment',
         'options' => array(
-            'route'    => '/strona/aktualnosci/:slug',
+            'route'    => '/aktualnosci',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'news',
+            ),
+        ),
+    ),
+    'events' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/wydarzenia',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'events',
+            ),
+        ),
+    ),
+    'one-news' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/aktualnosci/:slug',
             'defaults' => array(
                 'controller' => 'Page\Controller\Page',
                 'action'     => 'oneNews',
             ),
             'constraints' => array(
                 'slug' => '[a-zA-Z0-9_-]+'
+            ),
+        ),
+    ),
+    'one-events' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/wydarzenia/:slug',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'oneEvent',
+            ),
+            'constraints' => array(
+                'slug' => '[a-zA-Z0-9_-]+'
+            ),
+        ),
+    ),
+    'search' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/wyszukiwanie[/strona/:number]/:search',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'search',
             ),
         ),
     ),
