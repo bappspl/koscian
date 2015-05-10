@@ -1,0 +1,53 @@
+2015-05-10T12:43:24+02:00 CRIT (2): exception 'Zend\Form\Exception\InvalidElementException' with message 'No element by the name of [slug] found in form' in I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Form\Fieldset.php:223
+Stack trace:
+#0 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Page\view\cms-ir\page\create.phtml(20): Zend\Form\Fieldset->get('slug')
+#1 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\Renderer\PhpRenderer.php(506): include('I:\\htdocs\\kosci...')
+#2 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\View.php(205): Zend\View\Renderer\PhpRenderer->render(Object(Zend\View\Model\ViewModel))
+#3 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\View.php(233): Zend\View\View->render(Object(Zend\View\Model\ViewModel))
+#4 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\View\View.php(198): Zend\View\View->renderChildren(Object(Zend\View\Model\ViewModel))
+#5 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\View\Http\DefaultRenderingStrategy.php(103): Zend\View\View->render(Object(Zend\View\Model\ViewModel))
+#6 [internal function]: Zend\Mvc\View\Http\DefaultRenderingStrategy->render(Object(Zend\Mvc\MvcEvent))
+#7 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('render', Object(Zend\Mvc\MvcEvent), Array)
+#9 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(352): Zend\EventManager\EventManager->trigger('render', Object(Zend\Mvc\MvcEvent))
+#10 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(327): Zend\Mvc\Application->completeRequest(Object(Zend\Mvc\MvcEvent))
+#11 I:\htdocs\koscian\public\index.php(17): Zend\Mvc\Application->run()
+#12 {main}
+2015-05-10T12:47:47+02:00 CRIT (2): exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'filename_main' in 'field list'' in I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Db\Adapter\Driver\Pdo\Statement.php:239
+Stack trace:
+#0 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Db\Adapter\Driver\Pdo\Statement.php(239): PDOStatement->execute()
+#1 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Db\TableGateway\AbstractTableGateway.php(291): Zend\Db\Adapter\Driver\Pdo\Statement->execute()
+#2 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Db\TableGateway\AbstractTableGateway.php(258): Zend\Db\TableGateway\AbstractTableGateway->executeInsert(Object(Zend\Db\Sql\Insert))
+#3 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Page\src\Page\Model\PageTable.php(77): Zend\Db\TableGateway\AbstractTableGateway->insert(Array)
+#4 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Page\src\Page\Controller\PageController.php(61): CmsIr\Page\Model\PageTable->save(Object(CmsIr\Page\Model\Page))
+#5 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractActionController.php(83): CmsIr\Page\Controller\PageController->createAction()
+#6 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractController.php(116): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\DispatchListener.php(113): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#11 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#12 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#13 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(313): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 I:\htdocs\koscian\public\index.php(17): Zend\Mvc\Application->run()
+#16 {main}
+
+Next exception 'Zend\Db\Adapter\Exception\InvalidQueryException' with message 'Statement could not be executed (42S22 - 1054 - Unknown column 'filename_main' in 'field list')' in I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Db\Adapter\Driver\Pdo\Statement.php:244
+Stack trace:
+#0 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Db\TableGateway\AbstractTableGateway.php(291): Zend\Db\Adapter\Driver\Pdo\Statement->execute()
+#1 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Db\TableGateway\AbstractTableGateway.php(258): Zend\Db\TableGateway\AbstractTableGateway->executeInsert(Object(Zend\Db\Sql\Insert))
+#2 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Page\src\Page\Model\PageTable.php(77): Zend\Db\TableGateway\AbstractTableGateway->insert(Array)
+#3 I:\htdocs\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Page\src\Page\Controller\PageController.php(61): CmsIr\Page\Model\PageTable->save(Object(CmsIr\Page\Model\Page))
+#4 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractActionController.php(83): CmsIr\Page\Controller\PageController->createAction()
+#5 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractController.php(116): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\DispatchListener.php(113): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 I:\htdocs\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(313): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 I:\htdocs\koscian\public\index.php(17): Zend\Mvc\Application->run()
+#15 {main}
