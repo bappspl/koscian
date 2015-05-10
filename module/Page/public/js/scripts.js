@@ -21,5 +21,23 @@ $(function () {
                 $('#newsletterModal').modal('show');
             }
         });
-    })
+    });
+
+    $('#contactform').submit(function (e) {
+        e.preventDefault();
+        var values =  $('#contactform').serializeArray();
+        $.ajax({
+            type: "POST",
+            url: "/kontakt",
+            dataType : 'json',
+            data: {
+                data: values
+            },
+            success: function(json)
+            {
+                $('#contactform input, #contactform textarea').val('');
+                $('#contactModal').modal('show');
+            }
+        });
+    });
 });

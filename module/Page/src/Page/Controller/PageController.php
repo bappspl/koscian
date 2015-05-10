@@ -189,6 +189,48 @@ class PageController extends AbstractActionController
 
     }
 
+    public function contactPageAction()
+    {
+        $this->layout('layout/home');
+
+        $request = $this->getRequest();
+        if ($request->isPost())
+        {
+            $contactFormData = $request->getPost();
+            $transport = $this->getServiceLocator()->get('mail.transport');
+            $message = new Message();
+            $this->getRequest()->getServer();
+            $message->addTo('biuro@web-ir.pl')
+                ->addFrom('mailer@web-ir.pl')
+                ->setSubject('Wiadomość z formularza kontaktowego')
+                ->setBody('
+                    <b>Imię i Nazwisko: </b>'.$contactFormData['data'][0]['value'].'
+                    <b>Email: </b>'.$contactFormData['data'][1]['value'].'
+                    <b>Telefon: </b>'.$contactFormData['data'][2]['value'].'
+                    <b>Temat: </b>'.$contactFormData['data'][3]['value'].'
+                    <b>Treść: </b>'.$contactFormData['data'][4]['value'].'
+                ');
+            $transport->send($message);
+
+            $jsonObject = Json::encode($params['status'] = 'success', true);
+            echo $jsonObject;
+            return $this->response;
+        }
+
+        $page = $this->getPageService()->findOneBySlug('kontakt');
+
+        if(empty($page)){
+            $this->getResponse()->setStatusCode(404);
+        }
+
+        $viewParams = array();
+        $viewParams['page'] = $page;
+        $viewModel = new ViewModel();
+        $viewModel->setVariables($viewParams);
+        return $viewModel;
+
+    }
+
     public function saveSubscriberAjaxAction ()
     {
         $request = $this->getRequest();

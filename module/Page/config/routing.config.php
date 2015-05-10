@@ -21,6 +21,16 @@ return array(
             ),
         ),
     ),
+    'contact-page' => array(
+        'type' => 'Zend\Mvc\Router\Http\Segment',
+        'options' => array(
+            'route'    => '/kontakt',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'contactPage',
+            ),
+        ),
+    ),
     'save-subscriber' => array(
         'type' => 'Zend\Mvc\Router\Http\Literal',
         'options' => array(

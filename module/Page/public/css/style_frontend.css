@@ -513,7 +513,7 @@ pre { -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
 .modal-backdrop.in { z-index: 99998; opacity: 0.7; }
 .modal { z-index: 99999; }
 .modal-dialog { padding-top: 150px; }
-.modal-title { text-transform: uppercase; color: #FFF; }
+.modal-title { text-transform: uppercase; color: #000; }
 .modal-content { -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
 .modal-footer { background-color: #F9F9F9; }
 /* == END bootstrap modals == */

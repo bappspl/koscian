@@ -15,25 +15,29 @@
 
             <div class="news-body">
                 <?php echo $page->getContent() ?>
+
+                <?php if(count($pageFiles) > 0): ?>
+                    <?php $fileGroup = array_chunk($pageFiles, 3); ?>
+
+                    <?php foreach($fileGroup as $files): ?>
+
+                        <div class="row gutter k-equal-height">
+
+                            <?php foreach($files as $file): ?>
+                                <div class="col-lg-4 col-md-4 col-sm-12">
+                                    <figure class="gallery-photo-thumb">
+                                        <a href="/files/page/<?php echo $file->getFilename(); ?>" data-fancybox-group="gallery-bssb" class="fancybox">
+                                            <img src="<?php echo $this->url('thumb', array('entity' => 'page', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />
+                                        </a>
+                                    </figure>
+                                </div>
+                            <?php endforeach; ?>
+
+                        </div>
+
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
-
-            <?php if(count($pageFiles) > 0): ?>
-                <?php $fileGroup = array_chunk($pageFiles, 3); ?>
-
-                <?php foreach($fileGroup as $files): ?>
-
-                    <div class="row">
-
-                        <?php foreach($files as $file): ?>
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <img src="<?php echo $this->url('thumb', array('entity' => 'page', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />
-                            </div>
-                        <?php endforeach; ?>
-
-                    </div>
-
-                <?php endforeach; ?>
-            <?php endif; ?>
 
         </div>
     </div>

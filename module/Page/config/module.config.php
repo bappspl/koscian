@@ -20,6 +20,7 @@ return array(
             'partial/layout/slider' => __DIR__ . '/../view/partial/layout/slider.phtml',
 
             'partial/newsletter-modal' => __DIR__ . '/../view/partial/newsletter-modal.phtml',
+            'partial/contact-modal' => __DIR__ . '/../view/partial/contact-modal.phtml',
         ),
         'template_path_stack' => array(
             'page_home_site' => __DIR__ . '/../view'

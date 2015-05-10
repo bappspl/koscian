@@ -29,25 +29,30 @@
 
                         <div class="news-body">
                             <?php echo $text; ?>
+
+                            <?php if(count($postFiles) > 0): ?>
+                                <?php $fileGroup = array_chunk($postFiles, 3); ?>
+
+                                <?php foreach($fileGroup as $files): ?>
+
+                                    <div class="row k-equal-height">
+
+                                        <?php foreach($files as $file): ?>
+                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                <figure class="gallery-photo-thumb">
+                                                    <a href="/files/post/<?php echo $file->getFilename(); ?>" data-fancybox-group="gallery-bssb" class="fancybox">
+                                                        <img src="<?php echo $this->url('thumb', array('entity' => 'post', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        <?php endforeach; ?>
+
+                                    </div>
+
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
 
-                        <?php if(count($postFiles) > 0): ?>
-                            <?php $fileGroup = array_chunk($postFiles, 3); ?>
-
-                            <?php foreach($fileGroup as $files): ?>
-
-                            <div class="row">
-
-                                <?php foreach($files as $file): ?>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <img src="<?php echo $this->url('thumb', array('entity' => 'post', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />
-                                    </div>
-                                <?php endforeach; ?>
-
-                            </div>
-
-                            <?php endforeach; ?>
-                        <?php endif; ?>
                     <?php else : ?>
                         <div class="up-event-wrapper"><!-- event summary -->
                             <h1 class="title-median">Brak wydarzenia.</h1>
