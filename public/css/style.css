@@ -140,9 +140,9 @@ body.lock{
 	background: rgba(0,0,0,0.2);
 }
 .login-header .logo{
-	margin-top: 110px;
-	width: auto;
-	max-width: 240px;
+    margin-top: 70px;
+    width: auto;
+    max-width: 200px;
 }
 .login-wrapper{
 	width: 100%;
@@ -383,7 +383,7 @@ NAVBAR
 }
 .logo-brand img{
 	width: auto;
-	max-width: 160px;
+	max-width: 105px;
 }
 .logo-brand.white-color {
 	background: #fff;
