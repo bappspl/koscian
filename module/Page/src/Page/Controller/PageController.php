@@ -2,6 +2,7 @@
 
 namespace Page\Controller;
 
+use CmsIr\File\Model\Gallery;
 use CmsIr\Newsletter\Model\Subscriber;
 use CmsIr\Post\Model\Post;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -105,6 +106,46 @@ class PageController extends AbstractActionController
         return $viewModel;
     }
 
+    public function galleryAction()
+    {
+        $this->layout('layout/home');
+
+        $activeStatus = $this->getStatusTable()->getOneBy(array('slug' => 'active'));
+        $activeStatusId = $activeStatus->getId();
+        $page = $this->params()->fromRoute('number') ? (int) $this->params()->fromRoute('number') : 1;
+
+        $allGalleries = $this->getGalleryTable()->getWithPaginationBy(new Gallery(), array('status_id' => $activeStatusId));
+        $allGalleries->setCurrentPageNumber($page);
+        $allGalleries->setItemCountPerPage(5);
+
+        $galleries = array();
+        foreach($allGalleries as $gallery)
+        {
+            $galleryId = $gallery->getId();
+            $files = $this->getFileTable()->getBy(array('entity_type' => 'gallery', 'entity_id' => $galleryId));
+            $gallery->setFiles($files);
+
+            $galleries[] = $gallery;
+        }
+
+        $viewParams = array();
+        $viewParams['paginator'] = $allGalleries;
+        $viewParams['galleries'] = $galleries;
+
+        //sidebar vars
+        $usefulLinks = $this->getMenuService()->getMenuByMachineName('usefull-links');
+        $allNews = $this->getPostTable()->getWithPaginationBy(new Post(), array('status_id' => $activeStatusId, 'category' => 'news'), 'date_from DESC');
+        $allNews->setCurrentPageNumber(1);
+        $allNews->setItemCountPerPage(3);
+
+        $viewParams['usefulLinks'] = $usefulLinks;
+        $viewParams['recentNews'] = $allNews;
+
+        $viewModel = new ViewModel();
+        $viewModel->setVariables($viewParams);
+        return $viewModel;
+    }
+
     public function oneNewsAction()
     {
         $this->layout('layout/home');
@@ -167,6 +208,25 @@ class PageController extends AbstractActionController
         return $viewModel;
     }
 
+    public function oneGalleryAction()
+    {
+        $this->layout('layout/home');
+
+        $slug = $this->params('slug');
+        $gallery = $this->getGalleryTable()->getOneBy(array('slug' => $slug));
+        $galleryId = $gallery->getId();
+        $galleryFiles = $this->getFileTable()->getBy(array('entity_type' => 'gallery', 'entity_id' => $galleryId));
+
+        $gallery->setFiles($galleryFiles);
+
+        $viewParams = array();
+        $viewParams['gallery'] = $gallery;
+        $viewModel = new ViewModel();
+        $viewModel->setVariables($viewParams);
+        return $viewModel;
+
+    }
+
     public function viewPageAction()
     {
         $this->layout('layout/home');
@@ -199,17 +259,25 @@ class PageController extends AbstractActionController
             $contactFormData = $request->getPost();
             $transport = $this->getServiceLocator()->get('mail.transport');
             $message = new Message();
+            $content = '
+                    <b>Imię i Nazwisko: </b>'.$contactFormData['data'][0]['value'].' <br>
+                    <b>Email: </b>'.$contactFormData['data'][1]['value'].' <br>
+                    <b>Telefon: </b>'.$contactFormData['data'][2]['value'].' <br>
+                    <b>Temat: </b>'.$contactFormData['data'][3]['value'].' <br>
+                    <b>Treść: </b>'.$contactFormData['data'][4]['value'].' <br>
+                ';
+            $html = new MimePart($content);
+            $html->type = "text/html";
+
+            $body = new MimeMessage();
+            $body->setParts(array($html));
+
             $this->getRequest()->getServer();
             $message->addTo('biuro@web-ir.pl')
                 ->addFrom('mailer@web-ir.pl')
-                ->setSubject('Wiadomość z formularza kontaktowego')
-                ->setBody('
-                    <b>Imię i Nazwisko: </b>'.$contactFormData['data'][0]['value'].'
-                    <b>Email: </b>'.$contactFormData['data'][1]['value'].'
-                    <b>Telefon: </b>'.$contactFormData['data'][2]['value'].'
-                    <b>Temat: </b>'.$contactFormData['data'][3]['value'].'
-                    <b>Treść: </b>'.$contactFormData['data'][4]['value'].'
-                ');
+                ->setEncoding('UTF-8')
+                ->setSubject('Wiadomosc z formularza kontaktowego')
+                ->setBody($body);
             $transport->send($message);
 
             $jsonObject = Json::encode($params['status'] = 'success', true);
@@ -408,5 +476,13 @@ class PageController extends AbstractActionController
     public function getFileTable()
     {
         return $this->getServiceLocator()->get('CmsIr\File\Model\FileTable');
+    }
+
+    /**
+     * @return \CmsIr\File\Model\GalleryTable
+     */
+    public function getGalleryTable()
+    {
+        return $this->getServiceLocator()->get('CmsIr\File\Model\GalleryTable');
     }
 }

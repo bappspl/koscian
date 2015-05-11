@@ -35,7 +35,7 @@ $(function () {
             },
             success: function(json)
             {
-                $('#contactform input, #contactform textarea').val('');
+                $('#contactform input:not(input[type="submit"]), #contactform textarea').val('');
                 $('#contactModal').modal('show');
             }
         });

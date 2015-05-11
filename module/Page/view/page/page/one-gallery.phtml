@@ -1,0 +1,54 @@
+<?php /* @var $page \CmsIr\Page\Model\Page */?>
+<?php echo $this->partial('partial/layout/breadcrumb-search' , array('breadcrumps' => array('/' => 'Strona główna', '/galerie' => 'Galerie', $gallery->getName()))); ?>
+
+<div class="row no-gutter fullwidth"><!-- row -->
+    <div class="col-lg-12 col-md-12"><!-- doc body wrapper -->
+        <div class="col-padded"><!-- inner custom column -->
+            <?php
+                $files = $gallery->getFiles();
+                $countFiles = count($files);
+                $countString = variety($countFiles,'zdjęcie','zdjęcia','zdjęć');
+            ?>
+            <h1 class="page-title"><?php echo $gallery->getName() ?> <span class="label label-info"><?php echo $countFiles . ' ' . $countString; ?></span></h1>
+
+            <div class="news-body">
+
+                <?php if($countFiles > 0): ?>
+                    <?php $fileGroup = array_chunk($files, 3); ?>
+
+                    <?php foreach($fileGroup as $files): ?>
+
+                        <div class="row gutter k-equal-height">
+
+                            <?php foreach($files as $file): ?>
+                                <div class="col-lg-4 col-md-4 col-sm-12">
+                                    <figure class="gallery-photo-thumb">
+                                        <a href="/files/gallery/<?php echo $file->getFilename(); ?>" data-fancybox-group="gallery-bssb" class="fancybox">
+                                            <img src="<?php echo $this->url('thumb', array('entity' => 'gallery', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />
+                                        </a>
+                                    </figure>
+                                </div>
+                            <?php endforeach; ?>
+
+                        </div>
+
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<?php
+    function variety($number,$varietyFor1,$varietyFor234,$varietyForOthers)
+    {
+        if($number == 1)
+            return $varietyFor1;
+        if($number % 100 >= 10 && $number % 100 <= 20)
+            return $varietyForOthers;
+        if(in_array($number%10,array(2,3,4)))
+            return $varietyFor234;
+        return $varietyForOthers;
+    }
+?>

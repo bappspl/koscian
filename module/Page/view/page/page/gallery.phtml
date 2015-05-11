@@ -1,0 +1,80 @@
+<?php echo $this->partial('partial/layout/breadcrumb-search' , array('breadcrumps' => array('/' => 'Strona główna', 'Galerie'))); ?>
+<div class="row no-gutter"><!-- row -->
+    <div class="col-lg-8 col-md-8"><!-- doc body wrapper -->
+        <div class="col-padded"><!-- inner custom column -->
+            <div class="row gutter"><!-- row -->
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="page-title">Galerie</h1>
+                </div>
+            </div>
+
+            <div class="row gutter"><!-- row -->
+                <div class="col-lg-12 col-md-12">
+                    <?php if(count($galleries) > 0): ?>
+                        <?php foreach($galleries as $gallery): ?>
+                            <?php
+                                $files = $gallery->getFiles();
+                                $firstFile = reset($files);
+                                $countFiles = count($files);
+                                $countString = variety($countFiles,'zdjęcie','zdjęcia','zdjęć');
+                            ?>
+                            <div class="gallery-wrapper"><!-- gallery single wrap -->
+
+                                <figure class="gallery-last-photo clearfix">
+                                    <a href="<?php echo $this->url('one-gallery', array('slug' => $gallery->getUrl())); ?>" title="Gallery 01">
+                                        <img src="<?php echo $this->url('thumb', array('entity' => 'gallery', 'size' => '700x292', 'filename' => $firstFile->getFilename())); ?>" />
+                                    </a>
+                                </figure>
+
+                                <div class="gallery-info">
+                                    <span class="gallery-photos-num"><?php echo $countFiles; ?></span>
+                                    <span class="gallery-photos-tag"><?php echo $countString; ?></span>
+                                </div>
+
+                                <div class="gallery-meta">
+                                    <h1 class="gallery-title">
+                                        <a href="<?php echo $this->url('one-gallery', array('slug' => $gallery->getUrl())); ?>" title="Gallery 01"><?php echo $gallery->getName(); ?></a>
+                                    </h1>
+                                    <p class="gallery-description">
+                                    </p>
+                                </div>
+
+                            </div><!-- gallery single wrap end -->
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <div class="up-event-wrapper"><!-- event summary -->
+                            <h1 class="title-median">Brak galerii.</h1>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="row gutter"><!-- row -->
+
+                <div class="col-lg-12">
+                    <?php echo $this->paginationControl($paginator, 'sliding', array('partial/paginator-post.phtml', 'Album'), array('route' => 'gallery-front')); ?>
+
+                </div>
+
+            </div><!-- row end -->
+
+        </div><!-- inner custom column end -->
+
+    </div><!-- doc body wrapper end -->
+
+    <?php echo $this->partial('partial/layout/sidebar'); ?>
+
+</div><!-- row end -->
+
+<?php
+function variety($number,$varietyFor1,$varietyFor234,$varietyForOthers)
+{
+    if($number == 1)
+        return $varietyFor1;
+    if($number % 100 >= 10 && $number % 100 <= 20)
+        return $varietyForOthers;
+    if(in_array($number%10,array(2,3,4)))
+        return $varietyFor234;
+    return $varietyForOthers;
+}
+?>

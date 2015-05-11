@@ -57,7 +57,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hov
 /* == END titles, titles custom == */
 
 /* == custom buttons == */
-.custom-button { display: block; position: relative; overflow: hidden; padding: 15px 20px; margin: 20px 0; -webkit-transition: 0.25s ease-in-out all; -moz-transition: 0.15s ease-in-out all; -o-transition: 0.15s ease-in-out all; transition: 0.15s ease-in-out all; }
+.custom-button { display: block; position: relative; overflow: hidden; margin: 20px 0; -webkit-transition: 0.25s ease-in-out all; -moz-transition: 0.15s ease-in-out all; -o-transition: 0.15s ease-in-out all; transition: 0.15s ease-in-out all; }
 .custom-button-wrap { display: block; margin-left: 30px; }
 .custom-button-icon { display: block; float: left; font-size: 20px; line-height: 24px; }
 .custom-button-title { display: block; font-size: 20px; font-weight: 700; color: #fff7e3; line-height: 20px; letter-spacing: -.02em; text-transform: uppercase; }
@@ -711,3 +711,96 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge { backgroun
 	#k-menu { display: none; }
 }
 /* == END media queries == */
+
+/* custom */
+
+.k-dropdown-menu li{
+    text-align: center;
+}
+
+#drop-down-left > li{
+    margin-left: 35px;
+}
+
+.sub-menu li{
+    text-align: left;
+}
+
+.k-carousel-caption {
+    position: absolute;
+    border-top: 3px solid white;
+}
+
+.carousel-indicators li {
+    background-color: transparent;
+}
+
+.carousel-indicators .active{
+    background: #ffff00;
+}
+
+.title-widget:before {
+    background-color: #666666;
+}
+
+.up-event-date {
+    color: #363636;
+}
+
+.col-padded {
+    padding: 30px;
+}
+
+a:link, a:visited {
+    color: #363636;
+}
+
+a.show-all{
+    font-size: 12px;
+}
+
+.recent-news-wrap{
+    margin-bottom: 19px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba( 0, 0, 0, 0.05 );
+}
+
+#course-finder .btn-default {
+    background-color: #f4f400;
+}
+
+#course-finder .btn-default:before {
+    border-right: 5px solid #f4f400;
+}
+
+.btn-primary, .btn-default, .btn-success, .btn-info, .btn-warning, .btn-danger, .btn-link {
+    color: #898989 !important;
+}
+
+#k-footer {
+    background: #FFF;
+}
+
+#k-subfooter {
+    background-color: #F9F9F9;
+}
+
+.m-contact-street, .m-contact-city-region, .m-contact-zip-country, .m-contact-tel, .m-contact-fax{
+    font-weight: 700;
+}
+
+.font-weight{
+    font-weight: 700;
+}
+
+a.moretag{
+    font-weight: 700;
+    text-transform: lowercase;
+}
+
+.widget-container .up-event-wrap p {
+    text-align: justify;
+}
+.widget_recent_news .median-2 {
+    margin-bottom: 15px;
+}

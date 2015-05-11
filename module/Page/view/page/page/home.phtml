@@ -33,14 +33,23 @@
 
                                     <p>
                                         <?php echo $text; ?>
-                                        <a href="<?php echo $this->url('one-events', array('slug' => $event->getUrl())); ?>" class="moretag" title="read more">więcej</a>
                                     </p>
+
+                                    <div class="row">
+                                        <div class="col-md-12 text-right">
+                                            <a href="<?php echo $this->url('one-events', array('slug' => $event->getUrl())); ?>" class="moretag" title="read more">więcej</a>
+                                        </div>
+                                    </div>
 
                                 </li>
                             <?php endforeach; ?>
                         </ul>
 
-                        <a href="<?php echo $this->url('events'); ?>">zobacz wszystkie</a>
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-md-12 text-center">
+                                <a href="<?php echo $this->url('events'); ?>">zobacz wszystkie</a>
+                            </div>
+                        </div>
 
                     <?php else: ?>
                         <h1 class="title-median">Brak nadchodzących wydarzeń.</h1>
@@ -93,8 +102,12 @@
                                     <div class="recent-news-text">
                                         <p>
                                             <?php echo $text; ?>
-                                            <a href="<?php echo $this->url('one-news', array('slug' => $oneNews->getUrl())); ?>" class="moretag" title="read more">więcej</a>
                                         </p>
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <a href="<?php echo $this->url('one-news', array('slug' => $oneNews->getUrl())); ?>" class="moretag" title="read more">więcej</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -103,9 +116,13 @@
 
                         </ul>
 
-                        <a href="<?php echo $this->url('news'); ?>">zobacz wszystkie</a>
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-md-12 text-center">
+                                <a href="<?php echo $this->url('news'); ?>">zobacz wszystkie</a>
+                            </div>
+                        </div>
                     <?php else: ?>
-                        <h1 class="title-median">Brak aktualności.</h1>
+                        <h1 class="title-median median-2">Brak aktualności.</h1>
                     <?php endif; ?>
 
                 </li><!-- widgets list end -->

@@ -43,14 +43,14 @@
 
                             <h1 class="title-widget">Kontakt z nami</h1>
 
-                            <div itemscope>
+                            <div itemscope itemtype="http://data-vocabulary.org/Organization">
 
-                                <h2 class="title-median m-contact-subject" itemprop="name">Stowrzyszenie <br>Centrum Rozwoju Gminy Kościan</h2>
-
-                                <div class="m-contact-address" itemprop="address" itemscope>
+                                <div class="m-contact-address" itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+                                    <span class="m-contact-street" itemprop="street-address">Stowarzyszenie</span>
+                                    <span class="m-contact-street" itemprop="street-address">CENTRUM ROZWOJU GMINY KOŚCIAN</span>
                                     <span class="m-contact-street" itemprop="street-address">Stare Oborzyska</span>
-                                    <span class="m-contact-city-region"><span class="m-contact-city" itemprop="locality">ul. Szkolna 1</span></span>
-                                    <span class="m-contact-zip-country"><span class="m-contact-zip" itemprop="postal-code">64-000 Kościan</span></span>
+                                    <span class="m-contact-street" itemprop="street-address">ul. Szkolna 1</span>
+                                    <span class="m-contact-street" itemprop="street-address">64-000 Kościan</span>
                                 </div>
 
                                 <div class="m-contact-tel-fax">
@@ -89,18 +89,32 @@
                         <li class="widget-container widget_sofa_flickr"><!-- widgets list -->
 
                             <h1 class="title-widget">Najnowsza galeria</h1>
-
-                            <ul class="k-flickr-photos list-unstyled">
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-1.jpg" alt="Photo 1" /></a></li>
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-2.jpg" alt="Photo 2" /></a></li>
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-3.jpg" alt="Photo 3" /></a></li>
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-4.jpg" alt="Photo 4" /></a></li>
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-5.jpg" alt="Photo 5" /></a></li>
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-6.jpg" alt="Photo 6" /></a></li>
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-7.jpg" alt="Photo 7" /></a></li>
-                                <li><a href="#" title="Flickr photo"><img src="img/flickr-8.jpg" alt="Photo 8" /></a></li>
-                            </ul>
-
+                            <?php $countImgs = count($this->layout()->latestGalleryFiles); ?>
+                            <?php if($countImgs > 0): ?>
+                                <?php
+                                    $max = 8;
+                                    $files = $this->layout()->latestGalleryFiles;
+                                    $gallery = $this->layout()->latestGallery;
+                                    if($countImgs < 8)
+                                    {
+                                        $max = $countImgs;
+                                    }
+                                ?>
+                                <ul class="k-flickr-photos list-unstyled">
+                                    <?php for($i=0; $i<$max; $i++): ?>
+                                        <?php
+                                            $file = $files[$i];
+                                        ?>
+                                        <li>
+                                            <a href="<?php echo $this->url('one-gallery', array('slug' => $gallery->getUrl())); ?>" title="Flickr photo">
+                                                <img src="<?php echo $this->url('thumb', array('entity' => 'gallery', 'size' => '75x75', 'filename' => $file->getFilename())); ?>" />
+                                            </a>
+                                        </li>
+                                    <?php endfor; ?>
+                                </ul>
+                            <?php else: ?>
+                                <h1 class="title-median">Brak zdjęć.</h1>
+                            <?php endif; ?>
                         </li>
 
                     </ul>
@@ -121,10 +135,18 @@
 
         <div class="row"><!-- row -->
 
-            <div class="col-lg-12">
+            <div class="col-lg-8">
 
                 <p class="copy-text text-inverse">
-                    &copy; 2015 Buntington Public Schools. All rights reserved.
+                    Copyright &copy; 2015 Stowarzyszenie Centrum Rozwoju Gminy Kościan. Wszelkie prawa zastrzeżone
+                </p>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <p class="copy-text text-inverse">
+                    Designed by <span class="font-weight">DNA STUDIO</span>
                 </p>
 
             </div>

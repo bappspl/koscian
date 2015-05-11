@@ -64,6 +64,16 @@ return array(
             ),
         ),
     ),
+    'oneNews' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/aktualnosci-fake',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'news',
+            ),
+        ),
+    ),
     'events' => array(
         'type' => 'Segment',
         'options' => array(
@@ -71,6 +81,16 @@ return array(
             'defaults' => array(
                 'controller' => 'Page\Controller\Page',
                 'action'     => 'events',
+            ),
+        ),
+    ),
+    'gallery-front' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/galerie[/strona/:number]',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'gallery',
             ),
         ),
     ),
@@ -94,6 +114,19 @@ return array(
             'defaults' => array(
                 'controller' => 'Page\Controller\Page',
                 'action'     => 'oneEvent',
+            ),
+            'constraints' => array(
+                'slug' => '[a-zA-Z0-9_-]+'
+            ),
+        ),
+    ),
+    'one-gallery' => array(
+        'type' => 'Segment',
+        'options' => array(
+            'route'    => '/galerie/:slug',
+            'defaults' => array(
+                'controller' => 'Page\Controller\Page',
+                'action'     => 'oneGallery',
             ),
             'constraints' => array(
                 'slug' => '[a-zA-Z0-9_-]+'
