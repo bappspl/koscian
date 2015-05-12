@@ -38,7 +38,7 @@
                                     <div class="row k-equal-height">
 
                                         <?php foreach($files as $file): ?>
-                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                            <div class="col-lg-4 col-md-4 col-sm-6">
                                                 <figure class="gallery-photo-thumb">
                                                     <a href="/files/post/<?php echo $file->getFilename(); ?>" data-fancybox-group="gallery-bssb" class="fancybox">
                                                         <img src="<?php echo $this->url('thumb', array('entity' => 'post', 'size' => '340x142', 'filename' => $file->getFilename())); ?>" class="aligncenter" />

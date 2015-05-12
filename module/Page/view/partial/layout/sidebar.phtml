@@ -129,7 +129,7 @@
             <?php if(isset($this->layout()->banners)) : ?>
                 <li class="widget-container widget_text"><!-- widget -->
                     <?php foreach($this->layout()->banners as $banner): ?>
-                    <a href="<?php echo $banner->getUrl(); ?>" class="custom-button" >
+                    <a href="<?php echo $banner->getUrl(); ?>" class="custom-button banner-button" >
                         <img src="<?php echo $this->url('thumb', array('entity' => 'banner', 'size' => '320x100', 'filename' => $banner->getFilename())); ?>" alt="" />
                         <em></em>
                     </a>

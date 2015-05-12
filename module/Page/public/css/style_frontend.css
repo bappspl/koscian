@@ -25,7 +25,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /* ================================================== COMMON STYLES */
 
 /* == font and links == */
-body { font-family: 'Open Sans', 'Myriad Pro', 'Helvetica',  sans-serif; font-size: 16px; font-weight: 300; line-height: 26px; color: #777; }
+body { font-family: 'Palanquin', 'Myriad Pro', 'Helvetica',  sans-serif; font-size: 16px; font-weight: 300; line-height: 26px; color: #777; }
 a { -webkit-transition: 0.2s ease-in-out all; -moz-transition: 0.2s ease-in-out all; -o-transition: 0.2s ease-in-out all; transition: 0.2s ease-in-out all; }
 a:link, a:visited { color: #ea5644; text-decoration: none; }
 a:hover, a:focus { color: #111; outline: none; }
@@ -150,7 +150,7 @@ img.alignleft, img.aligncenter, img.alignright { margin-bottom: 5px; }
 /* smaller devices menu */
 #mobile-nav-switch { display: none; width: 24px; position: absolute; right: 0; top: 50%; margin-top: -12px; z-index: 8888; }
 #mobile-nav-switch:focus { outline: none; }
-span.alter-menu-icon { display: block; width: 24px; height: 24px; background: url(img/alter-menu.png) 0 0 no-repeat; -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); -webkit-transition: transform 250ms ease-out 0s; -moz-transition: transform 250ms ease-out 0s; -o-transition: transform 250ms ease-out 0s; transition: transform 250ms ease-out 0s; }
+span.alter-menu-icon { display: block; width: 24px; height: 24px; background: url(/img/alter-menu.png) 0 0 no-repeat; -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); -webkit-transition: transform 250ms ease-out 0s; -moz-transition: transform 250ms ease-out 0s; -o-transition: transform 250ms ease-out 0s; transition: transform 250ms ease-out 0s; }
 .open span.alter-menu-icon { background-position: 0 -24px; -webkit-transform: rotate(-180deg); -moz-transform: rotate(-180deg); -ms-transform: rotate(-180deg); -o-transform: rotate(-180deg); transform: rotate(-180deg); -webkit-transition: transform 250ms ease-out 0s; -moz-transition: transform 250ms ease-out 0s; -o-transition: transform 250ms ease-out 0s; transition: transform 250ms ease-out 0s; }
 #navigation-mobile { display: none; margin-top: 30px; }
 #navigation-mobile li { font-size: 14px; font-weight: 700; text-transform: uppercase; }
@@ -806,4 +806,29 @@ a.moretag{
 }
 .k-logo img {
     width: 166px;
+}
+
+.gallery-photos-num{
+    color: #363636;
+}
+
+.event-from, .event-to{
+    background-color: #363636;
+}
+
+@media (max-width: 767px) {
+    .custom-button:hover em{
+        display: none;
+    }
+
+    .gallery-photo-thumb {
+        border-bottom: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .banner-button {
+        width: 49%;
+        display: inline-block;
+    }
 }
