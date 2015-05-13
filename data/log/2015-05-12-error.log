@@ -1,0 +1,20 @@
+2015-05-12T17:53:07+02:00 CRIT (2): exception 'Zend\Mail\Protocol\Exception\RuntimeException' with message 'Unable to connect via TLS' in D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mail\Protocol\Smtp.php:180
+Stack trace:
+#0 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(341): Zend\Mail\Protocol\Smtp->helo('localhost')
+#1 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(326): Zend\Mail\Transport\Smtp->connect()
+#2 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(337): Zend\Mail\Transport\Smtp->lazyLoadConnection()
+#3 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(204): Zend\Mail\Transport\Smtp->connect()
+#4 D:\xampp\htdocs\web-ir\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Users\src\Users\Controller\UsersController.php(383): Zend\Mail\Transport\Smtp->send(Object(Zend\Mail\Message))
+#5 D:\xampp\htdocs\web-ir\koscian\vendor\cms-ir\cms-ir\src\CmsIr\Users\src\Users\Controller\UsersController.php(128): CmsIr\Users\Controller\UsersController->sendConfirmationEmail(Object(CmsIr\Users\Model\Users), '555221e230759')
+#6 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractActionController.php(83): CmsIr\Users\Controller\UsersController->createAction()
+#7 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#8 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#9 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractController.php(116): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\DispatchListener.php(113): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#12 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#13 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(468): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#14 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(207): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 D:\xampp\htdocs\web-ir\koscian\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(313): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#16 D:\xampp\htdocs\web-ir\koscian\public\index.php(17): Zend\Mvc\Application->run()
+#17 {main}
