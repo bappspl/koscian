@@ -25,7 +25,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /* ================================================== COMMON STYLES */
 
 /* == font and links == */
-body { font-family: 'Palanquin', 'Myriad Pro', 'Helvetica',  sans-serif; font-size: 16px; font-weight: 300; line-height: 26px; color: #777; }
+body { font-family:  'Arial','Palanquin', 'Myriad Pro', 'Helvetica',  sans-serif; font-size: 16px; font-weight: 300; line-height: 26px; color: #777; }
 a { -webkit-transition: 0.2s ease-in-out all; -moz-transition: 0.2s ease-in-out all; -o-transition: 0.2s ease-in-out all; transition: 0.2s ease-in-out all; }
 a:link, a:visited { color: #ea5644; text-decoration: none; }
 a:hover, a:focus { color: #111; outline: none; }
@@ -719,7 +719,7 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge { backgroun
 }
 
 #drop-down-left > li{
-    margin-left: 35px;
+    margin-left: 33px;
 }
 
 .sub-menu li{
