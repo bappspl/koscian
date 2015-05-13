@@ -106,7 +106,7 @@
                                             $file = $files[$i];
                                         ?>
                                         <li>
-                                            <a href="<?php echo $this->url('one-gallery', array('slug' => $gallery->getUrl())); ?>" title="Flickr photo">
+                                            <a href="<?php echo $this->url('one-gallery', array('url' => $gallery->getUrl())); ?>" title="Flickr photo">
                                                 <img src="<?php echo $this->url('thumb', array('entity' => 'gallery', 'size' => '75x75', 'filename' => $file->getFilename())); ?>" />
                                             </a>
                                         </li>

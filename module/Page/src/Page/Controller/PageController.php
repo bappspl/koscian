@@ -212,8 +212,8 @@ class PageController extends AbstractActionController
     {
         $this->layout('layout/home');
 
-        $slug = $this->params('slug');
-        $gallery = $this->getGalleryTable()->getOneBy(array('slug' => $slug));
+        $url = $this->params('url');
+        $gallery = $this->getGalleryTable()->getOneBy(array('url' => $url));
         $galleryId = $gallery->getId();
         $galleryFiles = $this->getFileTable()->getBy(array('entity_type' => 'gallery', 'entity_id' => $galleryId));
 

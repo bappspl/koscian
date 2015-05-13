@@ -123,13 +123,13 @@ return array(
     'one-gallery' => array(
         'type' => 'Segment',
         'options' => array(
-            'route'    => '/galerie/:slug',
+            'route'    => '/galerie/:url',
             'defaults' => array(
                 'controller' => 'Page\Controller\Page',
                 'action'     => 'oneGallery',
             ),
             'constraints' => array(
-                'slug' => '[a-zA-Z0-9_-]+'
+                'url' => '[a-zA-Z0-9_-]+'
             ),
         ),
     ),

@@ -21,7 +21,7 @@
                             <div class="gallery-wrapper"><!-- gallery single wrap -->
 
                                 <figure class="gallery-last-photo clearfix">
-                                    <a href="<?php echo $this->url('one-gallery', array('slug' => $gallery->getUrl())); ?>" title="Gallery 01">
+                                    <a href="<?php echo $this->url('one-gallery', array('url' => $gallery->getUrl())); ?>" title="Gallery 01">
                                         <img src="<?php echo $this->url('thumb', array('entity' => 'gallery', 'size' => '700x292', 'filename' => $firstFile->getFilename())); ?>" />
                                     </a>
                                 </figure>
@@ -33,7 +33,7 @@
 
                                 <div class="gallery-meta">
                                     <h1 class="gallery-title">
-                                        <a href="<?php echo $this->url('one-gallery', array('slug' => $gallery->getUrl())); ?>" title="Gallery 01"><?php echo $gallery->getName(); ?></a>
+                                        <a href="<?php echo $this->url('one-gallery', array('url' => $gallery->getUrl())); ?>" title="Gallery 01"><?php echo $gallery->getName(); ?></a>
                                     </h1>
                                     <p class="gallery-description">
                                     </p>
