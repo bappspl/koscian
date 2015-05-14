@@ -26,6 +26,7 @@ class Module
         }
 
         $banners = $this->getBannerTable($sm)->getBy(array('status_id' => 1));
+        $footerPage = $this->getPageService($sm)->findOneBySlug('stopka');
 
         $viewModel = $e->getViewModel();
         $viewModel->menu = $menu;
@@ -33,6 +34,7 @@ class Module
         $viewModel->latestGalleryFiles = array_values($latestGalleryFiles);
         $viewModel->latestGallery = $latestGallery;
         $viewModel->banners = $banners;
+        $viewModel->footerPage = $footerPage;
 
     }
 
@@ -58,6 +60,14 @@ class Module
     public function getMenuService($sm)
     {
         return$sm->get('CmsIr\Menu\Service\MenuService');
+    }
+
+    /**
+     * @return \CmsIr\Page\Service\PageService
+     */
+    public function getPageService($sm)
+    {
+        return$sm->get('CmsIr\Page\Service\PageService');
     }
 
     /**
