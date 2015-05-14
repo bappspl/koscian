@@ -45,19 +45,24 @@
 
                             <div itemscope itemtype="http://data-vocabulary.org/Organization">
 
-                                <div class="m-contact-address" itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-                                    <span class="m-contact-street" itemprop="street-address">Stowarzyszenie</span>
-                                    <span class="m-contact-street" itemprop="street-address">CENTRUM ROZWOJU GMINY KOŚCIAN</span>
-                                    <span class="m-contact-street" itemprop="street-address">Stare Oborzyska</span>
-                                    <span class="m-contact-street" itemprop="street-address">ul. Szkolna 1</span>
-                                    <span class="m-contact-street" itemprop="street-address">64-000 Kościan</span>
-                                </div>
-
-                                <div class="m-contact-tel-fax">
-                                    <span class="m-contact-tel">Tel/fax: <span itemprop="tel">65 5119820</span></span>
-                                    <span class="m-contact-fax">Kom: <span itemprop="fax">503013259</span></span>
-                                </div>
-
+                                <?php if($this->layout()->footerPage): ?>
+<!--                                <div class="m-contact-address" itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">-->
+<!--                                    <span class="m-contact-street" itemprop="street-address">Stowarzyszenie</span>-->
+<!--                                    <span class="m-contact-street" itemprop="street-address">CENTRUM ROZWOJU GMINY KOŚCIAN</span>-->
+<!--                                    <span class="m-contact-street" itemprop="street-address">Stare Oborzyska</span>-->
+<!--                                    <span class="m-contact-street" itemprop="street-address">ul. Szkolna 1</span>-->
+<!--                                    <span class="m-contact-street" itemprop="street-address">64-000 Kościan</span>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="m-contact-tel-fax">-->
+<!--                                    <span class="m-contact-tel">Tel/fax: <span itemprop="tel">65 5119820</span></span>-->
+<!--                                    <span class="m-contact-fax">Kom: <span itemprop="fax">503013259</span></span>-->
+<!--                                </div>-->
+                                    <?php
+                                        $page = $this->layout()->footerPage;
+                                        echo $page->getContent();
+                                    ?>
+                                <?php endif; ?>
                             </div>
 
                             <div class="social-icons">
