@@ -13,6 +13,7 @@ class CmsCreateBanner extends AbstractMigration
             ->addColumn('slug', 'string')
             ->addColumn('url', 'string')
             ->addColumn('filename', 'text')
+            ->addColumn('target', 'string')
             ->addForeignKey('status_id', 'cms_status', 'id', array('delete' => 'CASCADE', 'update' => 'NO_ACTION'))
             ->save();
     }

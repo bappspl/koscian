@@ -114,7 +114,7 @@ class PageController extends AbstractActionController
         $activeStatusId = $activeStatus->getId();
         $page = $this->params()->fromRoute('number') ? (int) $this->params()->fromRoute('number') : 1;
 
-        $allGalleries = $this->getGalleryTable()->getWithPaginationBy(new Gallery(), array('status_id' => $activeStatusId));
+        $allGalleries = $this->getGalleryTable()->getWithPaginationBy(new Gallery(), array('status_id' => $activeStatusId), 'id DESC');
         $allGalleries->setCurrentPageNumber($page);
         $allGalleries->setItemCountPerPage(5);
 
